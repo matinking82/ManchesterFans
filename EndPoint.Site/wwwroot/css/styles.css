@@ -1,0 +1,138 @@
+body {
+    font-family: Tahoma,'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.navbar-inverse {
+    background-color: #f10030 !important;
+}
+
+.my-nav {
+    color: gold !important;
+    font-size: 20px;
+}
+
+    .my-nav:hover {
+        color: red !important;
+        background-color: gold !important;
+    }
+
+.slie-back {
+    background-color: #1d2226;
+}
+
+a.slider {
+    width: 100%;
+    text-align: center;
+}
+
+    a.slider img {
+        height: 500px !important;
+        width: auto !important;
+        max-width: 100%;
+    }
+
+
+.slider-block img {
+    width: 100%;
+}
+
+h3.my-color-1 {
+    background-color: #a649cb !important;
+}
+
+h3.my-color-2 {
+    background-color: #ea4c89 !important;
+}
+
+
+.key-words {
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.post-card {
+    height: 25em;
+}
+
+    .post-card .entry-cover a,
+    .post-card .entry-cover img,
+    .post-card .entry-cover {
+        height: 100%;
+        max-width: 100%;
+    }
+
+.aside-img {
+    height: 100%;
+    max-width: 100%;
+}
+
+article.type-post {
+    direction: rtl;
+    margin-bottom: 50px;
+    border: 1px solid #c2c2c2;
+    padding: 30px;
+}
+
+img.header-img {
+    width: 100%;
+}
+
+.login-form {
+    width: 70%;
+    margin: 20px auto;
+    border: 1px solid #808080;
+    border-radius: 5px;
+    padding: 50px;
+    text-align: center;
+    direction: rtl;
+    box-shadow: 0px 0px 100px 10px #808080;
+}
+
+    .login-form:hover {
+        box-shadow: 0px 0px 100px 20px #808080;
+    }
+
+    .login-form input {
+        width: 80%;
+        margin: 10px auto;
+        height: 50px;
+        font-size: 30px;
+    }
+
+    .login-form .form-group {
+        margin: 50px auto;
+    }
+
+.profile-card {
+    box-shadow: 0px 0px 50px 1px #808080;
+    border-radius: 5px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.prof-img {
+    width: 40%;
+    margin: 20px auto !important;
+    border-radius: 1000px;
+}
+
+.profile-card * {
+    margin: 50px auto;
+    direction: rtl;
+}
+
+.profile-card a.btn {
+    margin: 0;
+}
+
+.prof-name {
+    font-size: 2em;
+}
+
+.prof-bio {
+    font-size: 1.5em;
+}
+
+.prof-level {
+    font-size: 1em;
+}

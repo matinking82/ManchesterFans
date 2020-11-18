@@ -1,0 +1,59 @@
+﻿@model EndPoint.Site.ViewModels.SiteViewModels.Users.UserProfileViewModel
+@{
+    ViewData["Title"] = "UserProfile";
+}
+
+
+<div class="container-fluid no-left-padding no-right-padding single-post">
+    <!-- Container -->
+    <div class="row">
+        <!-- Content Area -->
+        <div class="col-md-12 col-sm-12 col-xs-12 content-area">
+
+            <div class="row">
+
+                <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 table-bordered profile-card">
+
+
+                    <img class="thumbnail prof-img" id="prof-img" src="~/images/UserImages/@Model.ImageName" />
+                    <form method="post" enctype="multipart/form-data" asp-action="ChangeImage" asp-controller="Users">
+                        <input name="imgUp" type="file" accept="image/" placeholder="انتخاب عکس" onchange="ImageSelected()">
+                        <input id="change-prof-img" type="hidden" class="btn btn-success" value="تغیر تصویر" />
+                    </form>
+                    <hr />
+
+                    <form method="post" asp-action="ChangeName" asp-controller="Users">
+
+                        <input type="text" disabled id="prof-name" class="prof-name" onchange="NameChanged()" name="Username" value="@Model.Username">
+
+                        <a class="btn btn-warning" onclick="ChangeName()">تغییر نام کاربری</a>
+                        <input id="change-username" value="ثبت" class="btn btn-success" type="hidden" />
+
+                    </form>
+
+
+                    <hr />
+                    <form method="post" asp-action="ChangeBio" asp-controller="Users">
+                        <label>بیو :</label>
+                        <textarea name="Bio" id="prof-bio" onchange="BioChanged()" disabled class="prof-bio">@Model.Bio</textarea>
+                        <a class="btn btn-warning" onclick="ChangeBio()">تغییر بیو</a>
+                        <input type="hidden" class="btn btn-success" id="change-bio" value="ثبت" />
+                    </form>
+
+                    <hr />
+
+                    <h4 class="prof-level">سطح : @Model.Level</h4>
+                    <hr />
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/Profile.js"></script>
+}

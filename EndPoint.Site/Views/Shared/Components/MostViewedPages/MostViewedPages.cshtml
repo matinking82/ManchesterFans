@@ -1,0 +1,24 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.SiteViewModels.Page.SinglePageForSiteCardsViewModel>
+@{
+    Random random = new Random();
+}
+<!-- Widget Most liked Post -->
+<aside class="widget widget_latestposts">
+    <h3 class="widget-title my-color-1">پر بازدید ترین خبر ها</h3>
+    <div class="latest-content-box">
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="latest-content color-@random.Next(1,8)">
+                    <a href="/Page/@item.PageId" title="Recent Posts"><i><img src="/@item.ImageName" class="wp-post-image aside-img" alt="blog-1"></i></a>
+                    <span><a href="#" title="@item.GroupName">@item.GroupName</a> <a href="#">@item.CreateDate</a></span>
+                    <h5><a title="@item.Title" href="/Page/@item.PageId">@item.Title</a></h5>
+                    <p>@item.ShortDescribtion</p>
+                </div>
+            }
+        }
+    </div>
+    <div class="see-more"><a href="#" title="SEE MORE POST">SEE MORE POST</a></div>
+</aside>
+<!-- Widget Recent Post -->

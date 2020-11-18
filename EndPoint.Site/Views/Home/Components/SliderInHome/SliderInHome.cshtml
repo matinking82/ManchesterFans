@@ -1,0 +1,79 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.SiteViewModels.Page.PagesInSliderViewModel>
+@{
+    ViewData["Title"] = "SliderInHome";
+}
+
+<!-- Slider Section -->
+<div class="container-fluid no-left-padding no-right-padding slider-section2 slie-back">
+    <!-- Container -->
+    <div class="container">
+        <!-- Slider Block -->
+        <div class="col-md-12 col-sm-12 col-xs-12 slider-block">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+
+                    @for (int i = 0; i < Model.Count(); i++)
+                    {
+                        var item = Model.ElementAt(i);
+                        string active;
+                        if (i == 0)
+                        {
+                            active = "active";
+                        }
+                        else
+                        {
+                            active = "";
+                        }
+
+                        <div class="item @active">
+                            <div class="type-post color-7">
+                                <div class="entry-cover">
+                                    <a class="slider" href="#"><img src="/@item.ImageName" alt="@item.Title" /></a>
+                                </div>
+                                <div class="entry-content">
+                                    <div class="post-category"><a href="#" title="Economic">@item.GroupName</a></div>
+                                    <h3 class="entry-title"><a href="#">@item.Title</a></h3>
+                                    <div class="entry-footer">
+                                        <span class="post-date"><a href="#">@item.Date</a></span>
+                                        <span class="post-like"><i class="fa fa-heart-o"></i><a href="#">@item.Likes</a></span>
+                                        <span class="post-view"><i class="fa fa-eye"></i><a href="#">@item.Visits</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @*<div class="item">
+                            <div class="type-post color-7">
+                                <div class="entry-cover">
+                                    <a class="slider" href="#"><img src="~/SiteRefrences/images/slider2-slide.jpg" alt="Slide" /></a>
+                                </div>
+                                <div class="entry-content">
+                                    <div class="post-category"><a href="#" title="Economic">Economic</a></div>
+                                    <h3 class="entry-title"><a href="#">No, budget cuts aren't the reason we don't have an Ebola vaccine</a></h3>
+                                    <div class="entry-footer">
+                                        <span class="post-date"><a href="#">08 July, 2016</a></span>
+                                        <span class="post-like"><i class="fa fa-heart-o"></i><a href="#">356</a></span>
+                                        <span class="post-view"><i class="fa fa-eye"></i><a href="#">589</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+
+
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="fa fa-angle-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="fa fa-angle-right"></span>
+                </a>
+            </div>
+        </div><!-- Slider Block /- -->
+
+    </div><!-- Container /- -->
+</div>
+<!-- Slider Section /- -->
