@@ -1,0 +1,65 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.SiteViewModels.Page.PageCommentsViewModel>
+@{
+    ViewData["Title"] = "CommentsInPage";
+}
+
+<h2 class="comments-title">نظرات <span>(@Model.Count())</span></h2>
+
+
+<ol class="comment-list">
+    <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
+
+        @if (Model.Count() != 0)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="comment-body">
+                    <footer class="comment-meta">
+                        <div class="comment-author vcard">
+                            <img alt="@item.Name" src="/images/UserImages/@item.ImageName" style="width:50px" class="avatar avatar-72 photo" />
+                            <b class="fn">@item.Name</b>
+                        </div>
+                        <div class="comment-metadata"><a href="#">@item.Date</a></div>
+                    </footer>
+                    <div class="comment-content">
+                        <p>@item.Comment</p>
+                    </div>
+                    <div class="reply">
+                        <a rel="nofollow" class="comment-reply-link" href="#comment" onclick="SetReply(@item.CommentId,'@item.Name')" >پاسخ</a>
+                    </div>
+                </div>
+
+                if (item.ReplyComments != null)
+                {
+                    @foreach (var reply in item.ReplyComments)
+                    {
+                        <ol class="children">
+                            <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
+                                <div class="comment-body">
+                                    <footer class="comment-meta">
+                                        <div class="comment-author vcard">
+                                            <img alt="@reply.Name" src="/images/UserImages/@reply.ImageName" style="width:50px" class="avatar avatar-72 photo" />
+                                            <b class="fn">@reply.Name</b>
+                                        </div>
+                                        <div class="comment-metadata"><a href="#">@reply.Date</a></div>
+                                    </footer>
+                                    <div class="comment-content">
+                                        <p>@reply.Comment</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ol>
+                    }
+                }
+
+                <br />
+                <br />
+            }
+        }
+    </li>
+
+
+
+
+
+</ol><!-- .comment-list -->

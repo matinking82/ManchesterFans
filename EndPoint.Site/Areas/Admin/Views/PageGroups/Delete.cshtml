@@ -1,0 +1,25 @@
+﻿@using EndPoint.Site.ViewModels
+@model PageGroupsForAdminViewModel
+
+@{
+    ViewData["Title"] = "حذف";
+}
+
+<h3>از حذف مطمئنید؟</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GroupName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GroupName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="GroupId" />
+        <input type="submit" value="حذف" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-primary">بازگشت</a>
+    </form>
+</div>

@@ -1,0 +1,140 @@
+﻿@model EndPoint.Site.ViewModels.SiteViewModels.Site.SiteHeaderViewModel
+@{
+    ViewData["Title"] = "SiteHeader";
+}
+
+<!-- Header Section -->
+<header class="header_s header_s1">
+    <!-- SidePanel -->
+    <div id="slidepanel">
+        <!-- Top Header -->
+        <div class="container-fluid no-right-padding no-left-padding top-header">
+            <!-- Container -->
+            <div class="container">
+                <!-- Row -->
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-3 top-menu">
+                        <a href="#"><i class="icon_menu"></i> more</a>
+                        <ul>
+
+                            @foreach (var item in Model.Links)
+                            {
+                                <li><a href="@item.Url" title="@item.DisplayText">@item.DisplayText</a></li>
+
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-3 top-social">
+                        <a href="#"><i class="social_share"></i></a>
+                        <ul>
+                            <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#" title="Google+"><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6 top-search">
+
+                        <form method="get" class="searchform" asp-controller="Pages" asp-action="Search">
+                            <div class="input-group">
+                                <input placeholder="جستجو.." class="form-control" required="" type="text" name="Key">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </form>
+
+                    </div>
+                </div><!-- Row /- -->
+            </div><!-- Container /- -->
+        </div><!-- Top Header /- -->
+        @*
+            <!-- Middle Header -->
+                <div class="container-fluid no-left-padding no-right-padding middle-header">
+                    <!-- Container -->
+                        <div class="container">
+                            <!-- Row -->
+                            <div class="row">
+                                <div class="col-md-4 logo-block">
+                                    <a href="index.html"><img src="~/SiteRefrences/images/logo.png" alt="Logo" /></a>
+                                </div>
+                                <div class="col-md-8 add-block-banner">
+                                    <a href="#"><img src="~/SiteRefrences/images/top-banner.jpg" alt="Banner" /></a>
+                                </div>
+                            </div><!-- Row /- -->
+                        </div><!-- Container /- -->
+
+
+                </div>
+                <!-- Middle Header /- -->
+        *@
+        <img src="~/images/Header.png" class="header-img" />
+
+
+    </div><!-- SidePanel /- -->
+    <!-- Ownavigation -->
+    <nav class="navbar navbar-default navbar-inverse" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand my-nav" href="#">@Model.SiteName</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+
+                @*@foreach (var item in Model.Links)
+        {
+            <li><a href="@item.Url" class="my-nav">@item.DisplayText</a></li>
+        }*@
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Role).Value) >= 5)
+                    {
+                        <li><a href="/Admin/Home" class="my-nav">ورود به پنل مدیریت</a></li>
+                    }
+
+                    <li><a href="/Signout" class="my-nav">خروج از حساب</a></li>
+
+                    <li><a href="/im" class="my-nav">خوش آمدید  "@User.Identity.Name"</a></li>
+
+                }
+                else
+                {
+                    <li><a href="/Signup" class="my-nav">ایجاد حساب</a></li>
+                    <li><a href="/Login" class="my-nav">ورود به حساب</a></li>
+                }
+
+
+
+                @*<li><a href="/Archive" class="my-nav">آرشیو خبر ها</a></li>*@
+
+                <li class="active"><a href="/" class="my-nav">صفحه اصلی</a></li>
+
+
+
+
+            </ul>
+            @*<ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle my-nav" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" class="my-nav">Action</a></li>
+                            <li><a href="#" class="my-nav">Another action</a></li>
+                            <li><a href="#" class="my-nav">Something else here</a></li>
+                            <li><a href="#" class="my-nav">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>*@
+
+        </div>
+    </nav>
+
+</header><!-- Header Section /- -->

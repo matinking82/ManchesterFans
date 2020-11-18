@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.AdminViewModels.PageComments.UnAcceptedCommentsViewModel>
+
+@{
+    ViewData["Title"] = "تایید کامنت ها";
+}
+
+<h1>تایید کامنت ها</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(Model => Model.PageImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PageTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.InsertTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    <a href="/Page/@item.PageId">
+                        <img src="/@(item.PageImage)" style="width:100px;" class="thumbnail" />
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PageTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InsertTime)
+                </td>
+                <td>
+                    <a asp-action="AcceptComments" asp-route-id="@item.CommentId" class="btn btn-success">تایید</a>
+                    <a asp-action="DeleteComments" asp-route-id="@item.CommentId" class="btn btn-danger">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

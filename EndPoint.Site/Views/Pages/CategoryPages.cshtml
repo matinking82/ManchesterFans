@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.SiteViewModels.Page.SinglePageForSiteCardsViewModel>
+@{
+    ViewData["Title"] = "CategoryPages";
+}
+
+@{ 
+    Random random = new Random();
+}
+<!-- Recent Post -->
+<div class="container-fluid no-left-padding no-right-padding recent-post full-recent-post">
+    <div class="section-header">
+        <h3>پست های این دسته بندی</h3>
+    </div>
+    <!-- Row -->
+    <div class="row">
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <!-- Type Post -->
+                    <div class="type-post color-@random.Next(1, 8) post-card">
+                        <div class="entry-cover"><a href="/Page/@item.PageId"><img src="~/@item.ImageName" alt="@(item.Title)" /></a></div>
+                        <div class="entry-content">
+                            <div class="post-category"><a href="/Category/@item.GroupId" title="@item.GroupName">@item.GroupName</a></div>
+                            <h3 class="entry-title"><a href="/Page/@item.PageId">@item.Title</a></h3>
+                            <p>@item.ShortDescribtion</p>
+                            <div class="entry-footer">
+                                <span class="post-date"><a href="/Page/@item.PageId">@item.CreateDate</a></span>
+                                <span class="post-like"><i class="fa fa-heart-o"></i><a href="#">@item.Likes</a></span>
+                                <span class="post-view"><i class="fa fa-eye"></i><a href="#">@item.Visits</a></span>
+                            </div>
+                            <a href="/Page/@item.PageId" title="Read More">ادامه... <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    </div><!-- Type Post /- -->
+                </div>
+            }
+        }
+    </div>
+    <!-- Row /- -->
+
+</div>
+<!-- Recent Post /- -->

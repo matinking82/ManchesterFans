@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "SiteFooter";
+}
+
+<!-- Footer Main -->
+<footer id="footer-main" class="container-fluid no-left-padding no-right-padding footer-main">
+    <!-- Top Footer -->
+    <div class="container-fluid no-left-padding no-right-padding top-footer">
+        <!-- Container -->
+        <div class="container">
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Widget About -->
+                <div class="col-md-3 col-sm-6 col-xs-6">
+                    <aside class="widget widget_about">
+                        <h3 class="widget-title">ABOUT US</h3>
+                        <div class="logo-block"><a href="index.html"><img src="~/SiteRefrences/images/logo-2.png" alt="Logo" /></a></div>
+                        <p>Reporter is one of the excellent magazine in the world. Reporter magazine reached many readers very soon by his unique stories . Reporter is one of the excellent magazine in the world.</p>
+                    </aside>
+                </div><!-- Widget About /- -->
+
+
+
+                @await Component.InvokeAsync("FooterRecentPages")
+
+                @await Component.InvokeAsync("FooterCategories")
+               
+                @await Component.InvokeAsync("FooterPopularTags")
+
+
+            </div><!-- Row /- -->
+        </div><!-- Container /- -->
+    </div><!-- Top Footer -->
+    <!-- Bottom Footer -->
+    <div class="container-fluid bottom-footer">
+        <p>&copy; 2016 Reporter All Rights Shared by: <a href="https://www.mellatweb.com/"> Mellatweb.com</a> </p>
+    </div><!-- Bottom Footer /- -->
+</footer>
+<!-- Footer Main /- -->

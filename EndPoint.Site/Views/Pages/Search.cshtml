@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.SiteViewModels.Page.PagesForSearchResultViewModel>
+@{
+    ViewData["Title"] = "Search";
+}
+@{
+    Random random = new Random();
+}
+
+<div class="container-fluid no-left-padding no-right-padding single-post">
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+            <!-- Content Area -->
+            <div class="col-md-8 col-sm-6 col-xs-6 content-area">
+                <div class="section-header">
+                    <h3>
+                        نتیجه جستجو برای
+                        <br />
+                        " @ViewBag.SearchKey "
+                    </h3>
+                </div>
+                @if (Model.Count() != 0)
+                {
+                    @foreach (var item in Model)
+                    {
+
+                        <article class="type-post color-@random.Next(1,8) border-danger">
+                            <div class="entry-cover">
+                                <img src="\@item.ImageName" style="width:100%" alt="Post" />
+                                <div class="entry-header">
+                                    <div class="post-category"><a href="#" title="@item.GroupName">@item.GroupName</a></div>
+                                    <h3 class="entry-title">@item.Title</h3>
+                                    <div class="entry-footer">
+                                        <span class="post-date"><a href="#">@item.CreateDate</a></span>
+                                        <span class="post-like"><i class="fa fa-heart-o"></i><a href="#">@item.Likes</a></span>
+                                        <span class="post-view"><i class="fa fa-eye"></i><a href="#">@item.Visits</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="entry-content">
+
+                                @item.ShortDescribtion
+
+                            </div>
+
+
+                            <br />
+                            <a href="/Page/@item.PageId" class="btn btn-primary">ادامه مطلب</a>
+
+                        </article>
+
+                        
+                    }
+                }
+                else
+                {
+                    <article class="type-post color-@random.Next(1,8)">
+
+                        <div class="entry-content">
+
+                            نتیجه ای یافت نشد!!
+
+                        </div>
+
+                    </article>
+                }
+
+            </div><!-- Content Area /- -->
+
+            @await Component.InvokeAsync("SiteAside")
+
+        </div>
+    </div><!-- Container /- -->
+</div>
+

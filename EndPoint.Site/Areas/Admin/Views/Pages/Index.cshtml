@@ -1,0 +1,74 @@
+﻿@using EndPoint.Site.ViewModels.AdminViewModels
+@model IEnumerable<PagesForAdminViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>صفحات</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">ایجاد صفحه جدید</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescribtion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Likes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Group)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="\@(item.ImageName)" style="width:100px;" class="thumbnail"/>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortDescribtion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Visits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Likes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Group)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PageId" class="btn btn-warning">ویرایش</a> 
+                    <a asp-action="Details" asp-route-id="@item.PageId" class="btn btn-info">جزئیات</a> 
+                    <a asp-action="Delete" asp-route-id="@item.PageId" class="btn btn-danger">حذف</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.SiteViewModels.Site.FooterRecentPagesViewModel>
+@{
+}
+
+<!-- Widget Working Time -->
+<div class="col-md-3 col-sm-6 col-xs-6">
+    <aside class="widget widget_latestposts">
+        <h3 class="widget-title">تازه ترین خبر ها</h3>
+
+        @foreach (var item in Model)
+        {
+        <div class="latest-content">
+            <a href="/Page/@item.PageId" title="@item.Title"><i><img src="/@item.ImageName" style="width:60px!important;height:60px!important" class="wp-post-image" alt="blog-1"></i></a>
+            <h5><a title="@item.Title" href="/Page/@item.PageId">@item.Title </a></h5>
+            <span><i class="fa fa-pencil-square-o"></i><a href="/Page/@item.PageId">@item.Date</a></span>
+        </div>
+        }
+    </aside>
+</div><!-- Widget Working Time -->
