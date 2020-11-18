@@ -1,0 +1,166 @@
+body {
+    direction: rtl;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div.comments {
+    /* width: 90%; */
+    /* width: 90%; */
+    /* width: 90%; */
+    /* width: 90%; */
+    width: 1000px;
+    /* width: 90%; */
+    /* width: 90%; */
+    /* width: 90%; */
+    /* width: 90%; */
+    margin: 20px auto;
+    border: 1px solid #c2c2c2;
+    border-radius: 10px;
+}
+
+div.comments header h3 {
+    position: relative;
+    left: 10px;
+    bottom: 10px;
+    display: inline-block;
+    padding: 10px;
+    background-color: #dc143c;
+    color: gold;
+    border: gold 2px solid;
+    box-shadow: -2px 2px 10px black;
+    border-radius: 10px;
+}
+
+.my-shadow {
+    box-shadow: 0px 0px 10px gray;
+}
+
+.my-shadow:hover {
+    box-shadow: 0px 0px 20px gray;
+}
+
+div.cmnt img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    float: right;
+    margin: 20px;
+}
+
+div.cmnt {
+    overflow: hidden;
+    margin: 20px;
+    border: 1px solid #c4c4c4;
+    padding: 20px;
+}
+
+div.cmnt h4 {
+    margin: 10px;
+}
+
+div.cmnt h5 {
+    opacity: .5;
+    margin: 10px;
+}
+
+div.comments footer form {
+    padding: 20px;
+    border: 1px solid black;
+    width: 90%;
+    margin: 20px auto;
+}
+
+div.comments footer textarea {
+    font-size: 30px;
+    height: 300px;
+    width: 50%;
+    float: left;
+}
+
+div.comments footer input[type="text"],
+div.comments footer input[type="email"],
+div.comments footer input[type="url"] {
+    font-size: 30px;
+    border: 1px solid black;
+    border-bottom: 1px solid rgb(0, 86, 245);
+    width: 40%;
+    height: 50px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+div.comments footer input:focus,
+div.comments footer textarea:focus {
+    box-shadow: -2px 2px 10px rgb(26, 66, 139);
+    outline: none;
+}
+
+.Mybtn-1 {
+    width: 150px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: rgba(214, 15, 15, 0.911);
+    color: gold;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+}
+
+.Mybtn-1:hover {
+    box-shadow: 0px 2px 10px black;
+}
+
+div.comments footer h3 {
+    position: relative;
+    left: 30px;
+    bottom: 30px;
+    display: inline-block;
+    padding: 10px;
+    background-color: #dc143c;
+    color: gold;
+    border: gold 2px solid;
+    box-shadow: -2px 2px 10px black;
+    border-radius: 10px;
+}
+
+.reply {
+    width: 800px;
+    margin: 10px auto 10px 0px;
+    border: 1px solid #c2c2c2;
+}
+
+.cmnt a {
+    text-decoration: none;
+    color: royalblue;
+}
+
+.cmnt a:hover {
+    color: red;
+}
+
+.my-shadow-inset {
+    box-shadow: inset 0px 0px 10px gray;
+}
+
+.my-shadow-inset:hover {
+    box-shadow: inset 0px 0px 20px gray;
+}
+
+#lbltitle {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+#lbltitle-1 {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: rgb(252, 40, 40);
+}
+
+#lbltitle-1:hover {
+    color: gold;
+    text-shadow: 1px 1px black;
+}

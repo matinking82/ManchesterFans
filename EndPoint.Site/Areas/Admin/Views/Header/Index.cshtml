@@ -1,0 +1,37 @@
+﻿@using EndPoint.Site.ViewModels.AdminViewModels.Site
+@model SiteNameViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>ویرایش</h1>
+
+<h4>هدر سایت</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SiteName" class="control-label"></label>
+                <input asp-for="SiteName" class="form-control" />
+                <span asp-validation-for="SiteName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ثبت" class="btn btn-success" />
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" asp-controller="HeaderLinks" class="btn btn-primary">مدیریت لینک ها</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary">بازگشت</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

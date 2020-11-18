@@ -1,0 +1,56 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.AdminViewModels.Page.SliderPagesListViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Add">اضافه کردن</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescribtion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Visits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Likes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img class="thumbnail" style="width:100px;" src="/@item.ImageName"/>
+            </td>
+            <td> 
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDescribtion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Visits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Likes)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.PageId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PageId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

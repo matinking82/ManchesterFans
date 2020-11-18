@@ -1,0 +1,40 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.AdminViewModels.Site.HeaderLinksViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>لینک ها</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LinkId" class="btn btn-warning">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.LinkId" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

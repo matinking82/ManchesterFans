@@ -1,0 +1,17 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.SiteViewModels.Site.FooterCategoriesViewModel>
+@{
+}
+
+<!-- Widget Links -->
+<div class="col-md-3 col-sm-6 col-xs-6">
+    <aside class="widget widget_categories">
+        <h3 class="widget-title">دسته بندی ها</h3>
+        <ul>
+
+            @foreach (var item in Model)
+            {
+                <li><a href="/Category/@item.GroupId" title="@item.GroupName">@item.GroupName </a>(@item.PagesCount)</li>
+            }
+        </ul>
+    </aside>
+</div><!-- Widget Links /- -->

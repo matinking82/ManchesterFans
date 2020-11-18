@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EndPoint.Site.ViewModels.AdminViewModels.Users.AdminsListViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>ادمین ها</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">ایجاد</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NickName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NickName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.image)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LoginId" class="btn btn-warning">ویرایش</a> |
+                <a asp-action="Details" asp-route-id="@item.LoginId" class="btn btn-info">جزئیات</a> |
+                <a asp-action="Delete" asp-route-id="@item.LoginId" class="btn btn-danger">حذف</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+div.main {
+    overflow: hidden;
+    width: 80%;
+    min-height: 50vh;
+    margin: 10vh auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+div#main {
+    margin: auto;
+}
+
+img {
+    max-width: 100%;
+}
+
+div.manage {
+    margin: 20px auto;
+    border: 1px solid #c2c2c2;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+}
+    div.manage h1{
+        font-size:25px;
+    }
+
+    .admin-main {
+        border: 2px solid #c2c2c2;
+        padding: 30px;
+        width: 90%;
+        margin: 20px auto;
+        background: white;
+        border-radius: 10px;
+        overflow-x: scroll;
+        min-height:50vh;
+    }
