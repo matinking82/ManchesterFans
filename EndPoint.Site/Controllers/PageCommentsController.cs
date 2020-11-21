@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EndPoint.Site.ViewModels.SiteViewModels.Page;
 using ManchesterFans.Application.FacadPatterns;
 using ManchesterFans.Application.Services.Pages.Commands.AddPageComment;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.Site.Controllers
@@ -19,6 +20,7 @@ namespace EndPoint.Site.Controllers
         }
 
         [HttpPost]
+        [Authorize("User")]
         public IActionResult AddPageComment([Bind("Comment,Reply,PageId")] AddPageCommentsViewModel pageComments)
         {
             //TODO: ModelState Returns False (XD)
