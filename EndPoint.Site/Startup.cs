@@ -43,7 +43,8 @@ namespace EndPoint.Site
                 options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
             }).AddCookie(options =>
             {
-                options.LoginPath = new PathString("/");
+                options.LoginPath = new PathString("/Login");
+                options.AccessDeniedPath = new PathString("/Dinied");
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(43200.0);
             });
 
