@@ -1,4 +1,6 @@
-﻿@model EndPoint.Site.ViewModels.SiteViewModels.Site.SiteHeaderViewModel
+﻿@using EndPoint.Site.Utilities
+@model EndPoint.Site.ViewModels.SiteViewModels.Site.SiteHeaderViewModel
+
 @{
     ViewData["Title"] = "SiteHeader";
 }
@@ -90,13 +92,13 @@
             <ul class="nav navbar-nav navbar-right">
 
                 @*@foreach (var item in Model.Links)
-        {
-            <li><a href="@item.Url" class="my-nav">@item.DisplayText</a></li>
-        }*@
+                    {
+                        <li><a href="@item.Url" class="my-nav">@item.DisplayText</a></li>
+                    }*@
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                    if (Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Role).Value) >= 5)
+                    if (User.GetUserLevel() >= 5)
                     {
                         <li><a href="/Admin/Home" class="my-nav">ورود به پنل مدیریت</a></li>
                     }
@@ -104,7 +106,6 @@
                     <li><a href="/Signout" class="my-nav">خروج از حساب</a></li>
 
                     <li><a href="/im" class="my-nav">خوش آمدید  "@User.Identity.Name"</a></li>
-
                 }
                 else
                 {
