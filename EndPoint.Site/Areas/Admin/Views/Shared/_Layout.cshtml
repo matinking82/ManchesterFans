@@ -1,4 +1,4 @@
-﻿
+﻿@using EndPoint.Site.Utilities
 @{
     Layout = null;
 }
@@ -64,17 +64,22 @@
                             <a href="/"><i class="icon-home"></i><span data-i18n="" class="menu-title">صفحه اصلی</span></a>
                         </li>
 
-                        <li class="has-sub nav-item">
-                            <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">ادمین ها</span></a>
-                            <ul class="menu-content">
-                                <li>
-                                    <a href="~/Admin/Admins" class="menu-item">لیست ادمین</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/Admins/Create" class="menu-item">ثبت نام ادمین جدید *</a>
-                                </li>
-                            </ul>
-                        </li>
+                        @if (User.GetUserLevel() >= 10)
+                        {
+
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">ادمین ها</span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Admins" class="menu-item">لیست ادمین</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Admins/Create" class="menu-item">ثبت نام ادمین جدید *</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        }
 
 
                         <li class="has-sub nav-item">
@@ -109,22 +114,25 @@
                             <ul class="menu-content">
                                 <li>
                                     <a href="~/Admin/Comments" class="menu-item">کامنت های تایید نشده* </a>
-                                </li> 
-                            </ul>
-                        </li>
-
-                        <li class="has-sub nav-item">
-                            <a href="#"><i class="icon-crop"></i><span data-i18n="" class="menu-title"> سایت </span></a>
-                            <ul class="menu-content">
-                                <li>
-                                    <a href="~/Admin/Header" class="menu-item">تغییر نام</a>
-                                </li>
-                                <li>
-                                    <a href="~/Admin/HeaderLinks" class="menu-item">لیست لینک ها منو *</a>
                                 </li>
                             </ul>
                         </li>
 
+                        @if (User.GetUserLevel() >= 10)
+                        {
+                            <li class="has-sub nav-item">
+                                <a href="#"><i class="icon-crop"></i><span data-i18n="" class="menu-title"> سایت </span></a>
+                                <ul class="menu-content">
+                                    <li>
+                                        <a href="~/Admin/Header" class="menu-item">تغییر نام</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/HeaderLinks" class="menu-item">لیست لینک ها منو *</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        }
 
 
 
