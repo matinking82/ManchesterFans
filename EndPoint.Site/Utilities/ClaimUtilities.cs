@@ -16,5 +16,10 @@ namespace EndPoint.Site.Utilities
             }
             return null;
         }
+
+        public static int GetUserLevel(this ClaimsPrincipal User)
+        {
+            return int.Parse(((ClaimsIdentity)User.Identity).FindFirst(ClaimTypes.Role).Value);
+        }
     }
 }
