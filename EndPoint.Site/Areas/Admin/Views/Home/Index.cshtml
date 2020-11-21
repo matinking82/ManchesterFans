@@ -1,49 +1,54 @@
-﻿
+﻿@using EndPoint.Site.Utilities
+
 @{
     ViewBag.Title = "مدیریت";
 }
 
 @section style{
-        
-    }
 
+}
 
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
-    <h1>
-        مدیریت هِدر
-    </h1>
-    <a href="/Admin/Header" class="btn btn-primary btn-lg">مدیریت</a>
-</div>
+@if (User.GetUserLevel() >= 5)
+{
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
+        <h1>
+            مدیریت هِدر
+        </h1>
+        <a href="/Admin/Header" class="btn btn-primary btn-lg">مدیریت</a>
+    </div>
+}
 
-<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
-    <h1>
-        مدریت ادمین ها
-    </h1>
-    <a href="/Admin/Admins" class="btn btn-primary btn-lg">مدیریت</a>
-</div>
-
+@if (User.GetUserLevel() >= 5)
+{
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
+        <h1>
+            مدریت ادمین ها
+        </h1>
+        <a href="/Admin/Admins" class="btn btn-primary btn-lg">مدیریت</a>
+    </div>
+}
 
 @*<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
-    <h1>
-        مدریت کاربر ها
-    </h1>
-    <a href="/Admin/Members" class="btn btn-primary btn-lg">مدیریت</a>
-</div>*@
+        <h1>
+            مدریت کاربر ها
+        </h1>
+        <a href="/Admin/Members" class="btn btn-primary btn-lg">مدیریت</a>
+    </div>*@
 
 
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
-<h1>
-    مدریت دسته بندی ها
-</h1>
-<a href="/Admin/PageGroups" class="btn btn-primary btn-lg">مدیریت</a>
+    <h1>
+        مدریت دسته بندی ها
+    </h1>
+    <a href="/Admin/PageGroups" class="btn btn-primary btn-lg">مدیریت</a>
 </div>
 
 
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
-<h1>
-    مدریت صفحات
-</h1>
-<a href="/Admin/Pages" class="btn btn-primary btn-lg">مدیریت</a>
+    <h1>
+        مدریت صفحات
+    </h1>
+    <a href="/Admin/Pages" class="btn btn-primary btn-lg">مدیریت</a>
 </div>
 
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
@@ -53,9 +58,9 @@
     <a href="/Admin/Slider" class="btn btn-primary btn-lg">مدیریت</a>
 </div>
 
-@*<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
-<h1>
-    نظرات تایید نشده
-</h1>
-<a href="/Admin/PageComments" class="btn btn-primary btn-lg">مدیریت</a>
-</div>*@
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 manage">
+    <h1>
+        کامنت تایید نشده
+    </h1>
+    <a href="/Admin/Comments" class="btn btn-primary btn-lg">مدیریت</a>
+</div>
