@@ -10,10 +10,12 @@ using ManchesterFans.Persistance.Context;
 using ManchesterFans.Application.FacadPatterns;
 using EndPoint.Site.ViewModels.AdminViewModels.Page;
 using ManchesterFans.Application.Services.Pages.Queries.GetPagesForSliderSelect;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("Admin")]
     public class SliderController : Controller
     {
         private readonly IPageFacad _pageFacad;

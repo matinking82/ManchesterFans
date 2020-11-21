@@ -11,10 +11,12 @@ using ManchesterFans.Application.FacadPatterns;
 using ManchesterFans.Application.Services.Pages.Queries.GetPageGrpoupsForAdmin;
 using EndPoint.Site.ViewModels;
 using ManchesterFans.Application.Services.Pages.Commands.EditPageGroup;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("Admin")]
     public class PageGroupsController : Controller
     {
         private readonly IPageFacad _pageFacad;

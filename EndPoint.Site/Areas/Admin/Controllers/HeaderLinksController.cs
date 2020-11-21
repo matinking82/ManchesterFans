@@ -11,10 +11,12 @@ using ManchesterFans.Application.Interfaces.FacadPatterns;
 using EndPoint.Site.ViewModels.AdminViewModels.Site;
 using ManchesterFans.Application.Services.Site.Commands.CreateHeaderLink;
 using ManchesterFans.Application.Services.Site.Commands.EditHeaderLink;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("Master")]
     public class HeaderLinksController : Controller
     {
         ISiteFacad _siteFacad;

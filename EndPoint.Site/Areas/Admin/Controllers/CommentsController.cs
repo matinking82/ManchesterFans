@@ -2,6 +2,7 @@
 using EndPoint.Site.ViewModels.AdminViewModels.PageComments;
 using ManchesterFans.Application.FacadPatterns;
 using ManchesterFans.Application.Services.Pages.Queries.GetUnAcceptedComments;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("Admin")]
     public class CommentsController : Controller
     {
         private readonly IPageFacad _pageFacad;

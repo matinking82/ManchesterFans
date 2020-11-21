@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using EndPoint.Site.ViewModels.AdminViewModels.Site;
 using ManchesterFans.Application.Interfaces.FacadPatterns;
 using ManchesterFans.Application.Services.Site.Commands.EditSiteName;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("Master")]
     public class HeaderController : Controller
     {
         ISiteFacad _siteFacad;

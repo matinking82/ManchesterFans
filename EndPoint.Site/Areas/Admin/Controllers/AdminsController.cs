@@ -11,10 +11,12 @@ using ManchesterFans.Application.Interfaces;
 using EndPoint.Site.ViewModels.AdminViewModels.Users;
 using ManchesterFans.Application.Services.Users.Commands.CreateNewUser;
 using ManchesterFans.Application.Services.Users.Commands.EditUserFromAdmin;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("Master")]
     public class AdminsController : Controller
     {
         private readonly IUserFacad _userFacad;

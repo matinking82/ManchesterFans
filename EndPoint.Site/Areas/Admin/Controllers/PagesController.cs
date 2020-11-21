@@ -16,10 +16,12 @@ using EndPoint.Site.ViewModels.AdminViewModels.Page;
 using ManchesterFans.Application.Services.Pages.Commands.CreatePage;
 using ManchesterFans.Application.Services.Pages.Queries.GetSinglePageForEdit;
 using ManchesterFans.Application.Services.Pages.Commands.EditPage;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EndPoint.Site.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize("Admin")]
     public class PagesController : Controller
     {
         private readonly IPageFacad _pageFacad;
