@@ -34,6 +34,8 @@ namespace EndPoint.Site
         public void ConfigureServices(IServiceCollection services)
         {
 
+
+
             services.AddAuthentication(options =>
             {
                 options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -45,6 +47,12 @@ namespace EndPoint.Site
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(43200.0);
             });
 
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Master", policy => policy.RequireRole("10"));
+                options.AddPolicy("Admin", policy => policy.RequireRole("5", "6", "7", "8", "9", "10"));
+                options.AddPolicy("User", policy => policy.RequireRole("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"));
+            });
 
 
             services.AddControllersWithViews();
@@ -76,9 +84,10 @@ namespace EndPoint.Site
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
-            app.UseAuthentication();
 
 
             app.UseEndpoints(endpoints =>
