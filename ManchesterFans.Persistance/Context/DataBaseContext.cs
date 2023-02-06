@@ -55,7 +55,7 @@ namespace ManchesterFans.Persistance.Context
 
         private static void SeedData(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasData(new User() { image = "Default.png", Level = 10, LoginId = 1, Password = "9215625891".ToSHA256(), Username = "MatinKing" });
+            modelBuilder.Entity<User>().HasData(new User() { image = "Default.png", Level = 10, LoginId = 1, Password = "Admin".ToSHA256(), Username = "MatinKing" });
             modelBuilder.Entity<Header>().HasData(new Header() { Id = 1, SiteName = "Manchester Fans" });
         }
     }
